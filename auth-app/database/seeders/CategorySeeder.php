@@ -13,10 +13,40 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 10; $i++) {
+        // for ($i = 0; $i < 10; $i++) {
+        //     Category::create([
+        //         'name' => fake()->firstName,
+        //         'is_active' => fake()->boolean,
+        //     ]);
+        // }
+
+        $categories = [
+            [
+                'name' => 'Main course',
+                'is_active' => 1,
+            ],
+            [
+                'name' => 'Soups',
+                'is_active' => 1,
+            ],
+            [
+                'name' => 'Desserts',
+                'is_active' => 1,
+            ],
+            [
+                'name' => 'Salad',
+                'is_active' => 0,
+            ],
+            [
+                'name' => 'Drinks',
+                'is_active' => 1,
+            ],
+        ];
+        
+        foreach ($categories as $category) {
             Category::create([
-                'name' => fake()->firstName,
-                'is_active' => fake()->boolean,
+                'name' => $category['name'],
+                'is_active' => $category['is_active'],
             ]);
         }
     }

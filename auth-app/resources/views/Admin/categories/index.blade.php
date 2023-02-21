@@ -14,10 +14,9 @@
 
 <table class="table">
     <tr>
-        <th scope="col" width="100">Title</th>
-        <th scope="col">Name</th>
+        <th scope="col" width="100">ID</th>
         <th scope="col">Category</th>
-        <th scope="col">Enabled</th>
+        <th scope="col">Is Active</th>
         <th scope="col" width="100">Edit</th>
         <th scope="col" width="100">Delete</th>
     </tr>
@@ -27,11 +26,10 @@
         <td class="list-group-flush" >
             <a href="{{ url('categories', ['id' => $category->id]) }}" class="list-group-item list-group-item-action">{{ $category->name }}</a>
         </td>
-        <td>
-            @if($category->Category)
-            {{ $category->Category->name}}
-            @endif
-        </td>  
+        {{-- <td class="list-group-flush" >
+            <a href="{{ url('categories', ['id' => $category->id]) }}" class="list-group-item list-group-item-action">{{ $category->is_active }}</a>
+        </td> --}}
+        
         <td>{{ $category->is_active }}</td>
         <td>
             <a href="{{ route('category.edit', ['id' => $category->id]) }}" class="btn btn-primary">Edit</a>

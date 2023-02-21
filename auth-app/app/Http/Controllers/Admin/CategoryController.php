@@ -4,18 +4,74 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
     public function index(): View
     {
-        // select * from categories
         $categories = Category::all();
-        return view('admin/categories', [
+        return view('admin/categories/index', [
             'categories' => $categories
         ]);
         
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate(
+            ['name' => 'required|min:3|max:20']
+        );
+        Category::create($request->all());
+        return redirect('admin/categories/index')
+            ->with('success', 'Category created successfully!');
+    }
+
+    public function create(): View|RedirectResponse
+    {
+        $categories = Category::where('id', null)->get();
+        return view('admin/categories/create', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function edit(int $id, Request $request): View|RedirectResponse
+    {
+        $category = Category::find($id);
+        if ($category === null) {
+            abort(404);
+        }
+
+        if ($request->isMethod('post')) {
+            // dd($request);
+            $request->validate(
+                ['name' => 'required|min:3|max:20']
+            );
+
+            $category->fill($request->all());
+            // $category->is_active = $request->post('is_active');
+            $category->save();
+
+            return redirect('admin/categories/index')->with('success', 'Category updated successfully!');
+        }
+
+        return view('admin/categories/edit', [
+            'category' => $category
+        ]);
+
+        // return view('admin/categories/edit', compact('categories'));
+    }
+
+    public function delete(int $id)
+    {
+        $category = Category::find($id);
+        if ($category === null) {
+            abort(404);
+        }
+        $category->delete();
+        return redirect('admin/categories/index')->with('success', 'Category removed successfully!');
     }
 }

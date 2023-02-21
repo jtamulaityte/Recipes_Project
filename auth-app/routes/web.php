@@ -33,10 +33,21 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('admin/recipes/index', [RecipeController::class, 'index']);
-Route::resource('admin/categories', CategoryController::class);
+Route::get('admin/recipes/create', [RecipeController::class, 'create']);
+Route::post('admin/recipes/store', [RecipeController::class, 'store']);
+Route::any('admin/recipes/edit/{id}', [RecipeController::class, 'edit'])->name('recipe.edit');
+Route::delete('admin/recipes/delete/{id}', [RecipeController::class, 'delete'])->name('recipe.delete');
+
+Route::get('admin/categories/index', [CategoryController::class, 'index']);
+Route::get('admin/categories/create', [CategoryController::class, 'create']);
+Route::post('admin/categories/create', [CategoryController::class, 'store']);
+Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
+
 
 // Route::get('admin/categories/create', [CategoryController::class, 'create']);
 // Route::post('admin/categories/create', [CategoryController::class, 'store']);
 // Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-// Route::delete('categories/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete')->middleware('auth'); //middleware neleidzia istrinti neprisijungusiems vartotojams
+// Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 // Route::get('categories/{id}', [CategoryController::class, 'show']);

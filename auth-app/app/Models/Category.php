@@ -16,9 +16,9 @@ class Category extends Model
         'is_active',
     ];
 
-    // protected $attributes = [
-    //     'is_active' => false
-    // ];
+    protected $attributes = [
+        'is_active' => false
+    ];
 
     public function recipes(): HasMany
     {
