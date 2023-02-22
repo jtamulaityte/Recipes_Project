@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\IngredientController;
 use App\Http\Controllers\Admin\RecipeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -44,10 +45,8 @@ Route::post('admin/categories/create', [CategoryController::class, 'store']);
 Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
 Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 
-
-
-// Route::get('admin/categories/create', [CategoryController::class, 'create']);
-// Route::post('admin/categories/create', [CategoryController::class, 'store']);
-// Route::any('admin/categories/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-// Route::delete('admin/categories/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
-// Route::get('categories/{id}', [CategoryController::class, 'show']);
+Route::get('admin/ingredients/index', [IngredientController::class, 'index']);
+Route::get('admin/ingredients/create', [IngredientController::class, 'create']);
+Route::post('admin/ingredients/create', [IngredientController::class, 'store']);
+Route::any('admin/ingredients/edit/{id}', [IngredientController::class, 'edit'])->name('admin.ingredients.edit');
+Route::delete('admin/ingredients/delete/{id}', [IngredientController::class, 'delete'])->name('admin.ingredients.delete');

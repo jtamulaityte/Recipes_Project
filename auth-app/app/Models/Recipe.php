@@ -13,7 +13,7 @@ class Recipe extends Model
 
     protected $fillable = [
         'name',
-        // 'category',
+        'category_id',
         'description',
         'is_active',
     ];
@@ -27,7 +27,7 @@ class Recipe extends Model
         return $this->belongsToMany(Ingredient::class);
     }
 
-    public function categoryNew(): BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
