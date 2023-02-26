@@ -49,7 +49,7 @@
 
     <div class="form-group">
         <label class="form-label">Description:</label>
-        <textarea type="text" name="description" value="{{ old('description', $recipe->description) }}" class="form-control @error('description') is-invalid @enderror" placeholder="Recipe description"></textarea>
+        <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="4" cols="50">{{ old('description', $recipe->description) }}</textarea>
         @error('description')
         <div class="invalid-feedback">{{ $message }}</div><br>
         @enderror
@@ -61,7 +61,7 @@
     </div>
 
     <div class="form-group">
-        <input type="checkbox" name="is_active" class="form-check-input" value="1" @if (old('is_active')) checked @endif>
+        <input type="checkbox" name="is_active" class="form-check-input" value="1" @if (old('is_active', $recipe->is_active)) checked @endif>
         <label class="form-check-label">Active</label>
     </div>
 

@@ -7,7 +7,7 @@
 <h1>Edit Ingredient "{{ $ingredient->name }}"</h1>
  
 <form action="{{ route('admin.ingredients.edit', ['id' => $ingredient->id]) }}" method="post" class="row g-3">
- 
+
     @csrf
     <div class="form-group">
         <label class="form-label">Ingredient Name:</label>

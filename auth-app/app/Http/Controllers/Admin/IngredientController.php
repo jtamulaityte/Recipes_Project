@@ -12,29 +12,19 @@ class IngredientController extends Controller
 {
     public function index(): View
     {
-        $ingredients = Ingredient::all();
+        $ingredients = Ingredient::paginate(10);
  
         return view('admin/ingredients/index', [
             'ingredients' => $ingredients
         ]);
     }
-    // public function show(int $id): View
-    // {
-    //     $ingredient = Ingredient::find($id);
-    //         if ($ingredient === null) {
-    //         abort(404);
-    //     }
-    //     return view('admin/ingredients/show', [
-    //         'ingredient' => $ingredient
-    //     ]);
-    // }
  
     public function store(Request $request): RedirectResponse
     {
  
         $request->validate(
             [
-                'name' => 'required|max:20',
+                'name' => 'required|min:3|max:20',
             ]
         );
  

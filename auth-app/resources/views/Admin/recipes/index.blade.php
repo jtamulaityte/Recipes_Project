@@ -45,6 +45,7 @@
             <th scope="col">Category</th>
             <th scope="col">Ingredients</th>
             <th scope="col">Description</th>
+            <th scope="col">Active</th>
             <th scope="col" width="100">Edit</th>
             <th scope="col" width="100">Delete</th>
         </tr>
@@ -74,6 +75,7 @@
             @endif
             </td>
             <td>{{ $recipe->description }}</td>
+            <td>{{ $recipe->is_active }}</td>
             <td>
                 <a href="{{ route('recipe.edit', ['id' => $recipe->id]) }}" class="btn btn-primary">Edit</a>
             </td>

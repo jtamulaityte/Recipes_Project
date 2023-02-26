@@ -24,12 +24,8 @@
     <tr>
         <th scope="row">{{ $category->id }}</th>
         <td class="list-group-flush" >
-            <a href="{{ url('categories', ['id' => $category->id]) }}" class="list-group-item list-group-item-action">{{ $category->name }}</a>
+            {{ $category->name }}
         </td>
-        {{-- <td class="list-group-flush" >
-            <a href="{{ url('categories', ['id' => $category->id]) }}" class="list-group-item list-group-item-action">{{ $category->is_active }}</a>
-        </td> --}}
-        
         <td>{{ $category->is_active }}</td>
         <td>
             <a href="{{ route('category.edit', ['id' => $category->id]) }}" class="btn btn-primary">Edit</a>
