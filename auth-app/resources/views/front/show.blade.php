@@ -1,5 +1,5 @@
-@section('title', 'Recipe')
 @extends('components.min_layout')
+@section('title', $recipe->name . ' recipe')
 @section('content')
 
 
@@ -43,6 +43,7 @@
       <p class="card-text">{{ $recipe->description }}</p>
     </div>
   </div>
+  
 </div>
 
 @endsection

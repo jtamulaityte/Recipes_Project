@@ -12,8 +12,7 @@ class FrontController extends Controller
 {
     public function home(): View
     {
-        // $recipes = Recipe::all();
-        $recipes = Recipe::query()
+        $recipes = Recipe::where('is_active', '=', 1)
             ->latest()
             ->limit(10)
             ->get();

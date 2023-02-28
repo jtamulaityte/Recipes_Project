@@ -21,11 +21,6 @@ class Ingredient extends Model
         'is_active'=>false
     ];
 
-    // public function recipes(): HasMany 
-    // {
-    //     return $this->hasMany(Recipe::class);
-    // }
-
     public function recipes(): BelongsToMany 
     {
         return $this->belongsToMany(Recipe::class);

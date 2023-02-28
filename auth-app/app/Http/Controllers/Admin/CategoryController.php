@@ -46,13 +46,12 @@ class CategoryController extends Controller
         }
 
         if ($request->isMethod('post')) {
-            // dd($request);
             $request->validate(
                 ['name' => 'required|min:3|max:20']
             );
 
             $category->fill($request->all());
-            // $category->is_active = $request->post('is_active');
+            $category->is_active = $request->post('is_active', false);
             $category->save();
 
             return redirect('admin/categories/index')->with('success', 'Category updated successfully!');
@@ -61,8 +60,6 @@ class CategoryController extends Controller
         return view('admin/categories/edit', [
             'category' => $category
         ]);
-
-        // return view('admin/categories/edit', compact('categories'));
     }
 
     public function delete(int $id)

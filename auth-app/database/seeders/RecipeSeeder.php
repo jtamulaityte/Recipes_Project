@@ -94,6 +94,30 @@ class RecipeSeeder extends Seeder
                 'description' => 'Gluehwein (also spelled Glühwein) is a hot spiced "glow wine" that is found in many winter markets in Germany and Austria.',
                 'is_active' => 0,
             ],
+            [
+                'name' => 'Best Lasagna',
+                'category_id' => 1,
+                'description' => 'Making lasagna can be time-consuming, but the results are well worth the wait. You will find a detailed ingredient list and step-by-step instructions in the recipe below, but lets go over the basics.',
+                'is_active' => 1,
+            ],
+            [
+                'name' => 'Old-Fashioned Potato Salad',
+                'category_id' => 4,
+                'description' => 'This potato salad recipe is for the traditional creamy type of potato salad, with eggs, celery, and relish. It is perfect for making ahead to let the flavors develop.',
+                'is_active' => 1,
+            ],
+            [
+                'name' => 'Bananas Foster Cake',
+                'category_id' => 3,
+                'description' => 'A dense cake filled with a warm banana-rum filling and a sweet creamy buttercream with banana caramel - a rich and sweet dessert with pops of fruity banana.',
+                'is_active' => 0,
+            ],
+            [
+                'name' => 'Apple-Cranberry Crostada',
+                'category_id' => 3,
+                'description' => 'While a good pie crust ought to be a part of every cook has repertoire, sometimes there just is not the time. But why leave the baking to the grocery stores or bakery when puff pastry is a simple, high-quality stand-in for the original? In this Crostada, the sheet dough is baked free-form with ingredients piled on top. Could not be easier!',
+                'is_active' => 0,
+            ],
         ];
 
         foreach ($recipes as $recipe) {

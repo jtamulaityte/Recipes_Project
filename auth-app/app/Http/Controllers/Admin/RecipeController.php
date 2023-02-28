@@ -38,10 +38,9 @@ class RecipeController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-
         $request->validate(
             [
-                'name' => 'required',
+                'name' => 'required|min:3|max:50',
                 'description' => 'required|min:5|max:755',
                 'image' => [
                     'required',
@@ -61,9 +60,7 @@ class RecipeController extends Controller
             $recipe->save();
         };
         
-
         $recipe->ingredients()->attach($request->post('ingredient_id'));
-        // $recipe->description = $request->post('description');
       
         return redirect('admin/recipes/index')
             ->with('success', 'New recipe successfully added!');
@@ -90,9 +87,8 @@ class RecipeController extends Controller
 
         if ($request->isMethod('post')) {
             $request->validate(
-                ['name' => 'required|min:3|max:35']
+                ['name' => 'required|min:3|max:50']
             );
-            // dd($request->all());
             $recipe->fill($request->all());
             $recipe->ingredients()->detach();
             $recipe->ingredients()->attach($request->post('ingredient_id'));
@@ -113,7 +109,6 @@ class RecipeController extends Controller
             'recipe'=> $recipe,
             'categories' => $categories,
             'ingredients' => $ingredients]);
-        // return redirect('admin/recipes/edit', compact('categories', 'ingredients','recipe'));;
     }
 
     public function delete(int $id)

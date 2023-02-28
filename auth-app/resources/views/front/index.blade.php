@@ -1,5 +1,5 @@
 @extends('components.min_layout')
-
+@section('title', 'All recipes')
 @section('content')
 
 <div class="row">

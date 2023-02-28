@@ -38,6 +38,18 @@ class IngredientRecipeSeeder extends Seeder
                 'recipe_id' => 8,
                 'ingredient_id' => 10,
             ],
+            [
+                'recipe_id' => 13,
+                'ingredient_id' => 8,
+            ],
+            [
+                'recipe_id' => 13,
+                'ingredient_id' => 9,
+            ],
+            [
+                'recipe_id' => 13,
+                'ingredient_id' => 3,
+            ],
         ];
  
         foreach ($ingredients_recipe as $item) {

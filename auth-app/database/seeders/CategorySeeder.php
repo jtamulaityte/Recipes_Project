@@ -13,13 +13,6 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        // for ($i = 0; $i < 10; $i++) {
-        //     Category::create([
-        //         'name' => fake()->firstName,
-        //         'is_active' => fake()->boolean,
-        //     ]);
-        // }
-
         $categories = [
             [
                 'name' => 'Main course',
